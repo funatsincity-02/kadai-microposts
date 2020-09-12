@@ -17,7 +17,7 @@
 
   <% if current_user.myfavorite?(micropost) %>
     <%= form_with(model: current_user.favorites.find_by(micropost_id: micropost.id), local: true, method: :delete) do |f| %>
-      <%= f.submit 'Remove Myfavorite', class: 'btn btn-danger btn-sm' %>
+      <%= f.submit 'Remove Myfavorite', class: 'btn btn-success btn-sm' %>
     <% end %>
   <% else %>
   <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
