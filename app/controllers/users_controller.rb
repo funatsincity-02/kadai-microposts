@@ -42,6 +42,15 @@ class UsersController < ApplicationController
     counts(@user)
   end
 
+  def likes  #お気に入りのmicropostの数を取得
+    @user = User.find(params[:id])
+    @microposts = @user.myfavorites.order(id: :desc).page(params[:page])
+#binding.pry
+    counts(@user)
+  end
+
+
+
   private
   
   def user_params

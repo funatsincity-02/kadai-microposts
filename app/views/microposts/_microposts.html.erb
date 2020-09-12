@@ -13,9 +13,16 @@
           <% if current_user == micropost.user %>
             <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
           <% end %>
+          
+          <% if current_user != micropost.user %>
+            <%#  ここにお気に入りに入れる、外すのボタンを表示させる _favorite_button.html.erb を renderする　%>
+            <%= render '/favorite/favorite_button', micropost: micropost %>
+          <% end %>
+          
+          
         </div>
       </div>
     </li>
   <% end %>
-  <%= paginate microposts %>
+    <%= paginate microposts %>
 </ul>
